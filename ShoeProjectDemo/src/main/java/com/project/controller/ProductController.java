@@ -113,6 +113,14 @@ public class ProductController {
 		logger.info("Show product detail having id = " + id + "!");
 		return service.getDetailByID(id);
 	}
+	
+
+	// get product details by product detail ID
+	@GetMapping(value = "/productDetail/color")
+	public ProductReturnDto getDetailByID(@RequestParam String color) {
+		logger.info("Show product detail having color = " + color);
+		return service.getDetailByColor(color);
+	}
 
 	// create product
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

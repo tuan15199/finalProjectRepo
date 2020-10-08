@@ -78,11 +78,17 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 			+ "pd.star, pd.status, pd.picture1, pd.picture2, pd.picture3, c.id, c.type) "
 			+ "FROM Product p JOIN p.productDetails pd JOIN p.catalog c JOIN p.brand b")
 	List<ProductReturnDto> getAllDetail();
-	
+
 	// get product details by product detail ID
-		@Query("SELECT new com.project.dtos.ProductReturnDto(p.id, pd.id, b.name, p.name, p.price, pd.color, pd.size, pd.genderType, "
-				+ "pd.star, pd.status, pd.picture1, pd.picture2, pd.picture3, c.id, c.type) "
-				+ "FROM Product p JOIN p.productDetails pd JOIN p.catalog c JOIN p.brand b WHERE pd.id =:id")
-		ProductReturnDto getDetailByID(int id);
+	@Query("SELECT new com.project.dtos.ProductReturnDto(p.id, pd.id, b.name, p.name, p.price, pd.color, pd.size, pd.genderType, "
+			+ "pd.star, pd.status, pd.picture1, pd.picture2, pd.picture3, c.id, c.type) "
+			+ "FROM Product p JOIN p.productDetails pd JOIN p.catalog c JOIN p.brand b WHERE pd.id =:id")
+	ProductReturnDto getDetailByID(int id);
 	
+	// get product details by color
+	@Query("SELECT new com.project.dtos.ProductReturnDto(p.id, pd.id, b.name, p.name, p.price, pd.color, pd.size, pd.genderType, "
+			+ "pd.star, pd.status, pd.picture1, pd.picture2, pd.picture3, c.id, c.type) "
+			+ "FROM Product p JOIN p.productDetails pd JOIN p.catalog c JOIN p.brand b WHERE pd.color = :color")
+	ProductReturnDto getDetailByColor(String color);
+
 }

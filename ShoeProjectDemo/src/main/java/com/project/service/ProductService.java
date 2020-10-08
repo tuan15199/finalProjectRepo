@@ -127,6 +127,11 @@ public class ProductService {
 	public ProductReturnDto getDetailByID(int id) {
 		return repo.getDetailByID(id);
 	}
+	
+	// get product details by product detail color
+		public ProductReturnDto getDetailByColor(String color) {
+			return repo.getDetailByColor(color);
+		}
 
 	// create product
 	public Product createProduct(ProductDto productDto) {

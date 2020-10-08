@@ -1,7 +1,5 @@
 package com.project.dtos;
 
-import com.project.model.Type;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
